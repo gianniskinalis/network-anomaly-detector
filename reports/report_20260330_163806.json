@@ -1,0 +1,53 @@
+{
+  "report_generated": "2026-03-30T16:38:06.945366",
+  "total_flows_analysed": 34,
+  "total_anomalies": 2,
+  "anomalies": [
+    {
+      "src_ip": "10.0.2.15",
+      "dst_ip": "157.240.0.1",
+      "src_port": 50636,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "anomaly_score": -0.0074,
+      "features": {
+        "duration": 12.819938,
+        "packet_count": 9,
+        "total_bytes": 3680,
+        "avg_packet_size": 408.89,
+        "avg_inter_arrival": 1.424438,
+        "syn_count": 0
+      },
+      "mitre_tags": [
+        {
+          "tactic": "Uknown",
+          "technique": "Unclassified anomaly",
+          "reason": "Anomalous behavior detected but no specific technique matched"
+        }
+      ]
+    },
+    {
+      "src_ip": "10.0.2.15",
+      "dst_ip": "104.18.27.120",
+      "src_port": 37750,
+      "dst_port": 80,
+      "protocol": "TCP",
+      "anomaly_score": -0.015,
+      "features": {
+        "duration": 0.057657,
+        "packet_count": 6,
+        "total_bytes": 418,
+        "avg_packet_size": 69.67,
+        "avg_inter_arrival": 0.00961,
+        "syn_count": 1
+      },
+      "mitre_tags": [
+        {
+          "tactic": "Command & Control",
+          "technique": "T1071 - Application Layer Protocol",
+          "reason": "Small regular packets suggesting beaconing behavior"
+        }
+      ]
+    }
+  ]
+}
