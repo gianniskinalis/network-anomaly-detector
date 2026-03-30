@@ -1,6 +1,8 @@
 import sys
 from capture.capture import read_pcap, parse_packets, print_summary
 from features.extractor import group_into_flows, extract_features, print_flow_summary
+from baseline.profiler import init_db, store_flows, load_flows
+from detection.detector import train_baseline, score_flows, print_anomalies
 
 def main():
     if len(sys.argv) < 2:
@@ -18,7 +20,14 @@ def main():
     flows = group_into_flows(records)
     features = extract_features(flows)
     print_flow_summary(features)
-     
+
+    # Phase 3: store and detect
+    init_db()
+    store_flows(features)
+    all_flows = load_flows()
+    model = train_baseline(all_flows)
+    results = score_flows(model, all_flows)
+    print_anomalies(results)
 
 if __name__ == "__main__":
     main()
