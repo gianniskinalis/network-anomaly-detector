@@ -159,6 +159,22 @@ network-anomaly-detector/
 
 ---
 
+## Docker
+
+You can run this tool inside a Docker container without installing any dependencies locally.
+
+**Build the image:**
+```bash
+docker build -t network-anomaly-detector .
+```
+
+**Run the container:**
+```bash
+docker run --net=host --cap-add=NET_ADMIN network-anomaly-detector
+```
+
+> `--net=host` gives the container access to your network interfaces. `--cap-add=NET_ADMIN` grants the permissions scapy needs to capture packets.
+
 ## Disclaimer
 
 This tool is intended for educational purposes and authorized security research only. Only run it against networks and systems you own or have explicit permission to monitor. The author is not responsible for any misuse or damage caused by this tool.
