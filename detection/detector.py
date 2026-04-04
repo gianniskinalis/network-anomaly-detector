@@ -11,6 +11,7 @@ FEATURES = [
     "syn_count",
 ]
 
+
 def train_baseline(flows):
     """Train an Isolation Forest on stored flows."""
     X = np.array([[f[feat] for feat in FEATURES] for f in flows])
@@ -22,7 +23,8 @@ def train_baseline(flows):
     )
     model.fit(X)
     print(f"[*] Baseline trained on {len(flows)} flows")
-    return model 
+    return model
+
 
 def score_flows(model, flows):
     """Score flows and flag anomalies. Returns flows with anomaly scores."""
@@ -42,6 +44,7 @@ def score_flows(model, flows):
     print(f"[*] Scored {len(results)} flows - {anomaly_count} anomalies detected")
     return results
 
+
 def print_anomalies(results, limit=10):
     """Print flagged anomalous flows."""
     anomalies = [r for r in results if r["is_anomaly"]]
@@ -60,5 +63,3 @@ def print_anomalies(results, limit=10):
                   f"bytes={a['total_bytes']:<8} duration={a['duration']}s")
 
     print(f"{'='*70}\n")
-        
-

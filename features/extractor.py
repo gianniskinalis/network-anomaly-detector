@@ -1,5 +1,6 @@
 from collections import defaultdict
 
+
 def group_into_flows(records):
     """Group individual packet records into flows."""
     flows = defaultdict(list)
@@ -16,6 +17,7 @@ def group_into_flows(records):
 
     print(f"[*] Grouped {len(records)} packets into {len(flows)} flows")
     return flows
+
 
 def extract_features(flows):
     """Extract numerical features from each flow."""
@@ -58,6 +60,7 @@ def extract_features(flows):
 
     return feature_records
 
+
 def print_flow_summary(feature_records, limit=10):
     """Print a summary of extracted flows."""
     print(f"\n{'='*70}")
@@ -68,5 +71,5 @@ def print_flow_summary(feature_records, limit=10):
         print(f" [{i+1:03}] {f['src_ip']:<18} -> {f['dst_ip']:<18} {f['protocol']:<5}")
         print(f"       pkts={f['packet_count']:<5} bytes={f['total_bytes']:<8} "
               f"duration={f['duration']}s avg_size={f['avg_packet_size']}B")
-        
+
     print(f"{'='*70}\n")

@@ -1,6 +1,7 @@
 from scapy.all import rdpcap, sniff, IP, TCP, UDP, ICMP
 from datetime import datetime
 
+
 def read_pcap(filepath):
     """Read packets from a PCAP file."""
     print(f"[*] Reading PCAP: {filepath}")
@@ -8,12 +9,14 @@ def read_pcap(filepath):
     print(f"[*] Loaded {len(packets)} packets")
     return packets
 
+
 def capture_live(interface="eth0", packet_count=100, timeout=30):
     """Capture live traffic from a network interface."""
     print(f"[*] Capturing {packet_count} packets on {interface} (timeout: {timeout}s)")
     packets = sniff(iface=interface, count=packet_count, timeout=timeout)
     print(f"[*] Captured {len(packets)} packets")
     return packets
+
 
 def parse_packet(packet):
     """Extract key fields from a single packet. Returns a dict or None."""
@@ -46,6 +49,7 @@ def parse_packet(packet):
 
     return record
 
+
 def parse_packets(packets):
     """Parse a list of packets into a list of records."""
     records = []
@@ -60,6 +64,7 @@ def parse_packets(packets):
 
     print(f"[*] Parsed {len(records)} IP packets ({skipped} non-IP skipped)")
     return records
+
 
 def print_summary(records, limit=10):
     """Print a human-readable summary of the first N records."""

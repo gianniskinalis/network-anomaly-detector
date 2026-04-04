@@ -2,6 +2,7 @@ import json
 import os
 from datetime import datetime
 
+
 def generate_report(enriched_results, output_dir="reports"):
     """Generate a JSON report of all anomalous flows."""
     os.makedirs(output_dir, exist_ok=True)
@@ -43,12 +44,13 @@ def generate_report(enriched_results, output_dir="reports"):
     print(f"[*] Report saved to {filename}")
     return filename
 
+
 def print_report_summary(enriched_results):
     """Print a human readable summary of the report."""
     anomalies = [f for f in enriched_results if f["is_anomaly"]]
 
     print(f"\n{'='*70}")
-    print(f"  THREAT REPORT SUMMARY")
+    print("  THREAT REPORT SUMMARY")
     print(f"{'='*70}")
     print(f"  Total flows analysed : {len(enriched_results)}")
     print(f"  Anomalies detected  : {len(anomalies)}")

@@ -53,7 +53,7 @@ def map_to_mitre(flow):
             "technique": "T1571 - Non-Standard Port",
             "reason":    f"Traffic on uncommon port {dst_port}"
         })
-    
+
     if not tags:
         tags.append({
             "tactic":    "Unknown",
@@ -62,6 +62,7 @@ def map_to_mitre(flow):
         })
 
     return tags
+
 
 def enrich_anomalies(results):
     """Add MITRE tags to all anomalous flows."""

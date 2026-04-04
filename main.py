@@ -6,6 +6,7 @@ from detection.detector import train_baseline, score_flows, print_anomalies
 from mapping.mitre import enrich_anomalies
 from report.reporter import generate_report, print_report_summary
 
+
 def main():
     if len(sys.argv) < 2:
         print("Usage: python3 main.py <path_to_pcap>")
@@ -35,6 +36,7 @@ def main():
     enriched = enrich_anomalies(results)
     print_report_summary(enriched)
     generate_report(enriched)
+
 
 if __name__ == "__main__":
     main()

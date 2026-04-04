@@ -32,6 +32,7 @@ def init_db():
     conn.close()
     print(f"[*] Database initialised")
 
+
 def store_flows(feature_records):
     """Store extracted flow features into the database."""
     conn = sqlite3.connect(DB_PATH)
@@ -55,6 +56,7 @@ def store_flows(feature_records):
     conn.commit()
     conn.close()
     print(f"[*] Stored {len(feature_records)} flows into database")
+
 
 def load_flows():
     """Load all flows from the  database as a list of dicts."""
