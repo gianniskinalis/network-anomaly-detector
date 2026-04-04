@@ -3,6 +3,7 @@ import os
 
 DB_PATH = "data/baseline.db"
 
+
 def init_db():
     """Create the database and flows table if they don't exist."""
     os.makedirs("data", exist_ok=True)
@@ -30,7 +31,7 @@ def init_db():
 
     conn.commit()
     conn.close()
-    print(f"[*] Database initialised")
+    print("[*] Database initialised")
 
 
 def store_flows(feature_records):
